@@ -52,3 +52,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+
+#-----------------
+# Django Stuff
+media/p/
+
+*.sqlite3
