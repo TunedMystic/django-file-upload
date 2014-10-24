@@ -33,6 +33,6 @@ File Details 1
 ==================
 
 File Details 2
-![File Details 2](Screenshots/3_2_File_Details_2.png)
+![File Details 2](Screenshots/3_3_File_Details_2.png)
 ==================
 
