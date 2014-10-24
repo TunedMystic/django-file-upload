@@ -1,11 +1,11 @@
+import os
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.core.urlresolvers import reverse
-from django.conf import settings
 
 from picsApp.models import PictureUpload
 from picsApp.forms import PictureUploadForm
-from picsApp.dirDetails import dirFileDetails
+from picsApp.simpleFileSize import getSize
 
 # Create your views here.
 def uploadFile(request):
@@ -33,5 +33,15 @@ def listFiles(request):
   """
    
   # Get a the details of each uploaded file as a list.
-  fileDetails = dirFileDetails(settings.MEDIA_ROOT)
-  return render(request, "picsApp/uploadList.html", {"files": fileDetails})
+  limitResults = 12    
+   
+   
+  details = []
+  for pic in PictureUpload.objects.all()[:limitResults]:
+    n = {}
+    n["fileName"] = os.path.basename(pic.img.name)
+    n["fileExtension"] = os.path.splitext(pic.img.name)[-1]
+    n["fileSize"] = getSize(pic.img.size)
+    details.append(n)
+   
+  return render(request, "picsApp/uploadList.html", {"files": details})
