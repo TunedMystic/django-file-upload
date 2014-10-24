@@ -24,6 +24,7 @@ def uploadFile(request):
   # No form data, so return an empty form.
   else:
     uploadForm = PictureUploadForm()
+   
   return render(request, "picsApp/uploadForm.html", {"form": uploadForm})
 
 
@@ -33,15 +34,14 @@ def listFiles(request):
   """
    
   # Get a the details of each uploaded file as a list.
-  limitResults = 12    
-   
-   
+  limitResults = 12 
   details = []
   for pic in PictureUpload.objects.all()[:limitResults]:
     n = {}
     n["fileName"] = os.path.basename(pic.img.name)
     n["fileExtension"] = os.path.splitext(pic.img.name)[-1]
     n["fileSize"] = getSize(pic.img.size)
+    n["fileUrl"] = pic.img.name
     details.append(n)
    
   return render(request, "picsApp/uploadList.html", {"files": details})

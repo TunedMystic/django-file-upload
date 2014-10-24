@@ -1,24 +1,24 @@
+{% extends 'picsApp/base.html' %}
+{% load staticfiles %}
 {% load picApp_filters %}
 
-<!DOCTYPE html>
+{% block title %}View Uploaded Images{% endblock %}
 
-<html>
-  <head>
-    <title>Simple Uploading App</title>
-  </head>
-  
-  <body>
-    <h1>Details of all uploads:</h1>
-    
-    
-    {% for file in files %}
-        <h3>File Name: {{ file|d_key:"fileName" }}</h3>
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'picsApp/css/uploadList.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1 class="darkish">Details of all uploads:</h1>
+   
+  {% for file in files %}
+    <div class="fileblock">
+      <div class="fileblock-inner">
+        <h3>File Name: <a href="{{ MEDIA_URL }}{{ file|d_key:'fileUrl' }}">{{ file|d_key:"fileName" }}</a></h3>
         <h3>File Extension: {{ file|d_key:"fileExtension" }}</h3>
         <h3>File Size: {{ file|d_key:"fileSize" }}</h3>
-      <p>-----------------------------------------------------------</p>
-      <br />
-    {% endfor %}
-    
-    
-  </body>
-</html>
+      </div>
+    </div>
+  {% endfor %}
+  
+{% endblock %}

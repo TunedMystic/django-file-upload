@@ -1,20 +1,24 @@
-<!DOCTYPE html>
+{% extends 'picsApp/base.html' %}
+{% load staticfiles %}
 
-<html>
-  <head>
-    <title>Simple Uploading App</title>
-  </head>
-  
-  <body>
-    <h1>Upload a nice picture!!</h1>
-    
-    
-    <form action="." method="POST" enctype="multipart/form-data">
+{% block title %}Upload an Image{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'picsApp/css/upload.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+    <h1 class="darkish">Upload a nice picture!!</h1>  
+    <form id="uploadForm" action="." method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ form }}
-      <input type="submit" value="Upload My Pic!" />
+      
+      <div class="clearfix">
+        <div class="simpleSpacer"></div>
+        {{ form }}
+        <input type="submit" class="button" value="Upload My Pic!" />
+      </div>
+      
+      <div class="simpleSpacer"></div>
     </form>
-    
-    
-  </body>
-</html>
+{% endblock %}

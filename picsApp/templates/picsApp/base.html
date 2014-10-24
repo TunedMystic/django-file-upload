@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amtex Training | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'picsApp/css/main.css' %}"/>
+    {% block styles %}{% endblock %}
+  </head>
+  
+  <body>
+    
+    
+    <div id="page-header">
+      <div id="page-header-inner">
+        <h1>Amtex Training</h1>
+        <p>Image Upload App</p>
+      </div>
+    </div>
+    
+    
+    <div id="page-main">
+      <div id="page-inner">
+        
+        <div id="page-content">
+          {% block content %}{% endblock %}
+         
+          {% block footScripts %}{% endblock %}
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    <div id="page-footer">
+      <div id="page-footer-inner">
+        <p>Written by Sandeep Jadoonanan.</p>
+        <p class="copyright">&copy; Copyright 2014.</p>
+      </div>
+    </div>
+    
+    
+  </body>
+</html>
