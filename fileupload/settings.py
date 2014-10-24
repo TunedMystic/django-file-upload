@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "pics"
+    "picsApp"
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,5 +86,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.abspath(os.path.join(BASE_DIR, "media"))
 
-
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, "templates")]
+TEMPLATE_DIRS = [
+    os.path.join(BASE_DIR, "fileupload/templates"),
+    os.path.join(BASE_DIR, "picsApp/templates")
+]

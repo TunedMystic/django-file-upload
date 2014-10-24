@@ -1,0 +1,24 @@
+{% load picApp_filters %}
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Simple Uploading App</title>
+  </head>
+  
+  <body>
+    <h1>Details of all uploads:</h1>
+    
+    
+    {% for file in files %}
+        <h3>File Name: {{ file|d_key:"fileName" }}</h3>
+        <h3>File Extension: {{ file|d_key:"fileExtension" }}</h3>
+        <h3>File Size: {{ file|d_key:"fileSize" }}</h3>
+      <p>-----------------------------------------------------------</p>
+      <br />
+    {% endfor %}
+    
+    
+  </body>
+</html>

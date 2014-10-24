@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Simple Uploading App</title>
+  </head>
+  
+  <body>
+    <h1>Upload a nice picture!!</h1>
+    
+    
+    <form action="." method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Upload My Pic!" />
+    </form>
+    
+    
+  </body>
+</html>

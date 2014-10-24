@@ -8,7 +8,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     
     url(r"^$", TemplateView.as_view(template_name = "default/index.html"), name = "index"),
-    url(r"^p/", include("pics.urls", namespace = "pics")),
+    url(r"^p/", include("picsApp.urls", namespace = "pics")),
     
     url(r'^admin/', include(admin.site.urls)),
 )

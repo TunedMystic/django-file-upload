@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-from pics import views
+from picsApp import views
 
 urlpatterns = patterns('',
    
