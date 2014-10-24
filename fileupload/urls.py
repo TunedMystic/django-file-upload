@@ -1,3 +1,11 @@
+"""
+    Amtex Training Project
+    "Image Upload Program"
+       
+      Sandeep Jadoonanan
+       October 24, 2014
+"""
+
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.views.generic import TemplateView

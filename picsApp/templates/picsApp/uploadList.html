@@ -9,16 +9,45 @@
 {% endblock %}
 
 {% block content %}
-  <h1 class="darkish">Details of all uploads:</h1>
-   
-  {% for file in files %}
-    <div class="fileblock">
-      <div class="fileblock-inner">
-        <h3>File Name: <a href="{{ MEDIA_URL }}{{ file|d_key:'fileUrl' }}">{{ file|d_key:"fileName" }}</a></h3>
-        <h3>File Extension: {{ file|d_key:"fileExtension" }}</h3>
-        <h3>File Size: {{ file|d_key:"fileSize" }}</h3>
+  
+  {% if files %}
+     
+    <h1 class="darkish">Details of all uploads:</h1>
+    <hr />
+     
+    {% for file in files %}
+      <div class="fileblock">
+        <div class="fileblock-inner">
+           
+          <table class="fileblock-table">
+             
+            <tr>
+              <td class="align-left">File Name:</td>
+              <td><a href="{{ MEDIA_URL }}{{ file|d_key:'fileUrl' }}">{{ file|d_key:"fileName" }}</a></td>
+            </tr>
+             
+            <tr>
+              <td class="align-left">File Extension:</td>
+              <td>{{ file|d_key:"fileExtension" }}</td>
+            </tr>
+             
+            <tr>
+              <td class="align-left">File Size:</td>
+              <td>{{ file|d_key:"fileSize" }}</td>
+            </tr>
+             
+          </table>
+           
+        </div>
       </div>
+    {% endfor %}
+    
+  {% else %}
+  
+    <div class="fileblock-table smallwidth">
+      <h1 class="darkish"> No pictures to display</h1>
     </div>
-  {% endfor %}
+    
+  {% endif %}
   
 {% endblock %}

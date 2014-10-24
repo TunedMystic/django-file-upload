@@ -1,8 +1,45 @@
+/*
+    Amtex Training Project
+    "Image Upload Program"
+       
+      Sandeep Jadoonanan
+       October 24, 2014
+*/
 
 .fileblock {
-  
+  padding: 10px;
 }
 
 .fileblock-inner {
   
 }
+
+.fileblock-table {
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #8AC3DA;
+  border: 2px solid #5892AA;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.fileblock a {
+  text-decoration: none;
+  color: #535AA7;
+}
+
+.fileblock a:visited {
+  text-decoration: none;
+  color: #673CC2;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.smallwidth {
+  width: 440px;
+  padding: 15px;
+}
+

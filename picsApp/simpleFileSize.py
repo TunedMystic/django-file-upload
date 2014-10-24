@@ -1,5 +1,10 @@
-#!/usr/bin/python
-
+"""
+    Amtex Training Project
+    "Image Upload Program"
+       
+      Sandeep Jadoonanan
+       October 24, 2014
+"""
 
 def getSize(amt):
   """

@@ -56,6 +56,5 @@ target/
 
 #-----------------
 # Django Stuff
-media/p/
-
-*.sqlite3
+#media/p/
+#*.sqlite3

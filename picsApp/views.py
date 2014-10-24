@@ -1,3 +1,11 @@
+"""
+    Amtex Training Project
+    "Image Upload Program"
+       
+      Sandeep Jadoonanan
+       October 24, 2014
+"""
+
 import os
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, Http404
@@ -20,7 +28,7 @@ def uploadFile(request):
     if uploadForm.is_valid():
       # Save the form data (the picture).
       uploadForm.save()
-      return HttpResponseRedirect(reverse("index"))
+      return HttpResponseRedirect(reverse("pics:list-files"))
   # No form data, so return an empty form.
   else:
     uploadForm = PictureUploadForm()
@@ -36,7 +44,8 @@ def listFiles(request):
   # Get a the details of each uploaded file as a list.
   limitResults = 12 
   details = []
-  for pic in PictureUpload.objects.all()[:limitResults]:
+  allPictures = PictureUpload.objects.all()
+  for pic in allPictures:
     n = {}
     n["fileName"] = os.path.basename(pic.img.name)
     n["fileExtension"] = os.path.splitext(pic.img.name)[-1]
@@ -44,4 +53,5 @@ def listFiles(request):
     n["fileUrl"] = pic.img.name
     details.append(n)
    
-  return render(request, "picsApp/uploadList.html", {"files": details})
+  details.reverse()
+  return render(request, "picsApp/uploadList.html", {"files": details[:limitResults]})
