@@ -3,7 +3,7 @@ django-file-upload
 
 A simple Django app that uploads a file, and displays uploaded content.
 
-[Home Page](Screenshots/1_1_Home.png)
+![Home Page](Screenshots/1_1_Home.png)
 
 [Upload Form](Screenshots/2_1_Upload_Form.png)
 
